@@ -3,10 +3,11 @@
 /*
     To Do: 
     - Ask Jeff if we should try to pull event information from another table on the databse or let them fill out the event name and dates on their own
-    - Add session variable check to see if user is logged in
+    - Make a practice events table to pull info from 
     - Add SQL to pull event names and dates from the event table
         - populate drop down menues on the form for Event Name and Event Dates
-        - check that the information sent to database is correct   
+        - check that the information sent to database is correct 
+    - Add session variable check to see if user is logged in
 */
 
 // check session variable to see if user is logged in
