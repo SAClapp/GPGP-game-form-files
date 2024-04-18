@@ -1,5 +1,14 @@
 <?php
 
+/*
+    To Do: 
+    - Ask Jeff if we should try to pull event information from another table on the databse or let them fill out the event name and dates on their own
+    - Add session variable check to see if user is logged in
+    - Add SQL to pull event names and dates from the event table
+        - populate drop down menues on the form for Event Name and Event Dates
+        - check that the information sent to database is correct   
+*/
+
 // check session variable to see if user is logged in
 // if not, redirect to login page
 // session variable: member_role 
@@ -132,6 +141,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <h2>Required Fields</h2>
             <p>
+                <!-- 
+                    Temporarily a text field, will be a dropdown populated with the event names from the event table
+                -->
                 <label for="eventName">Event Name: </label>
                 <input type="text" name="eventName" id="eventName" placeholder="Event Name" required>
             </p>
@@ -150,7 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <option value="2024-05-17">2024-05-17</option>
                         <option value="2024-05-18">2024-05-18</option>
                         <option value="2024-05-19">2024-05-19</option>
-                        <!-- populate with the event dates -->
+                        <!-- populate with the event dates from event on the event table -->
                     </select>
                 </p>
 
