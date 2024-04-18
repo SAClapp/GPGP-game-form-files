@@ -1,0 +1,48 @@
+@import 'main-stylesheet.scss';
+
+.game-input-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5vw;
+    padding: 3vw;
+    background-color: $blue-transparant;
+    width: 50%;
+    color: $white;
+    margin: 9em auto 5em auto;
+
+    h1 {
+        font-size: 2.5em;
+        margin: 1em 0;
+        font-weight: 400;
+    }
+    p {
+        font-size: 1.3em;
+        margin: 0.5em 0;
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    input, select {
+        flex: 1;
+        padding: 0.5em;
+        margin: 0.5em;
+        font-size: 0.75em;
+        background-color: $blue-transparant;
+        border: 1px solid $white;
+        color: $white;
+        border-style: none none solid none;
+    }
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 1em 0;
+}
+
+.game-input-form input[type="radio"] {
+    margin: 0 0.5em;
+}
