@@ -130,6 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" class="game-input-form">
             <h1>Game Information</h1>
 
+            <h2>Required Fields</h2>
             <p>
                 <label for="eventName">Event Name: </label>
                 <input type="text" name="eventName" id="eventName" placeholder="Event Name" required>
@@ -181,13 +182,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </p>
 
             <p>
-                <label for="gameAltTime">Alternate Start Time (optional): </label>
-                <input type="time" name="gameAltTime" id="gameAltTime">
-            </p>
-
-            <p>
                 <label for="numberOfPlayers">Number of Players: </label>
                 <input type="number" name="numberOfPlayers" id="numberOfPlayers" step="1" min="1" required>
+            </p>
+
+            <h2>Optional Fields</h2>
+            <p>
+                <label for="gameAltTime">Alternate Start Time (optional): </label>
+                <input type="time" name="gameAltTime" id="gameAltTime">
             </p>
 
             <p>
