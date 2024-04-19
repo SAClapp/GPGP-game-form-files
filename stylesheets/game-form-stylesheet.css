@@ -237,14 +237,30 @@ footer p {
   margin: 1em 0;
   font-weight: 400;
 }
+.game-input-form h2 {
+  margin: 1.5em 0 1em 0;
+  font-weight: 400;
+  color: #9f412c;
+}
 .game-input-form p {
   font-size: 1.3em;
   margin: 0.5em 0;
   display: flex;
-  align-items: center;
   width: 100%;
 }
-.game-input-form input, .game-input-form select {
+.game-input-form input {
+  margin: 0.5em;
+}
+
+.yellow-label {
+  color: #d5ab62;
+}
+
+.input-container {
+  align-items: center;
+}
+
+.input-field {
   flex: 1;
   padding: 0.5em;
   margin: 0.5em;
@@ -262,6 +278,54 @@ footer p {
   margin: 1em 0;
 }
 
-.game-input-form input[type=radio] {
-  margin: 0 0.5em;
+.alt-time-field {
+  background-color: rgba(239, 236, 231, 0.8392156863);
+  color: #0c0d0f;
+  border-radius: 5px;
+}
+
+.textarea-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 1em 0;
+}
+
+.textarea {
+  resize: none;
+  background-color: rgba(29, 33, 59, 0.8745098039);
+  color: #efece7;
+  padding: 0.5em;
+  font-size: 1em;
+  margin-top: 0.5em;
+  border: 1px solid #efece7;
+  border-radius: 5px;
+}
+
+.submit-button {
+  border: 1px solid rgba(169, 132, 68, 0.8941176471);
+  flex: 1;
+  font-size: 1em;
+}
+
+.clear-button {
+  border: 1px solid #9f412c;
+  flex: 1;
+  background-color: rgba(29, 33, 59, 0.8745098039);
+  color: #9f412c;
+  font-size: 1em;
+}
+
+.clear-button:hover {
+  background-color: #9f412c;
+  color: #efece7;
+  cursor: pointer;
+}
+
+.confirm-message-container {
+  background-color: rgba(29, 33, 59, 0.8745098039);
+  color: #efece7;
+  margin: 15vw auto;
+  padding: 3vw;
+  width: 50%;
 }/*# sourceMappingURL=game-form-stylesheet.css.map */

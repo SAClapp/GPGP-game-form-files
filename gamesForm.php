@@ -2,6 +2,8 @@
 
 /*
     To Do: 
+    - Should Judge be required when they might need to add information for a lunch/dinner session (2 or 4)?
+    - Should we display a confirmation message or redirect to the display page?
     - Ask Jeff if we should try to pull event information from another table on the databse or let them fill out the event name and dates on their own
     - Make a practice events table to pull info from 
     - Add SQL to pull event names and dates from the event table
@@ -122,6 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php
     if ($formSubmitted) {
     ?>
+        <div class="confirm-message-container">
         <h1><?php echo $confirmMsg; ?></h1>
         <span><?php echo $errorMsg; ?></span>
 
@@ -134,6 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <p>Number of Players: <?php echo $numberOfPlayers; ?></p>
         <p>Game Notes: <?php echo $gameNotes; ?></p>
         <p>Game Rules: <?php echo $gameRules; ?></p>
+        </div>
     <?php
     } else {
     ?>
@@ -141,23 +145,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <h1>Game Information</h1>
 
             <h2>Required Fields</h2>
-            <p>
+            <p class="input-container">
                 <!-- 
                     Temporarily a text field, will be a dropdown populated with the event names from the event table
                 -->
-                <label for="eventName">Event Name: </label>
-                <input type="text" name="eventName" id="eventName" placeholder="Event Name" required>
+                <label for="eventName" class="yellow-label">Event Name: </label>
+                <input type="text" name="eventName" id="eventName" placeholder="Event Name" class="input-field" required>
             </p>
 
-            <p>
-                <label for="gameName">Game Name: </label>
-                <input type="text" name="gameName" id="gameName" placeholder="Game Name" required>
+            <p class="input-container">
+                <label for="gameName" class="yellow-label">Game Name: </label>
+                <input type="text" name="gameName" id="gameName" placeholder="Game Name" class="input-field" required>
             </p>
 
             <div class="form-row">
-                <p>
-                    <label for="gameDate">Game Date: </label>
-                    <select name="gameDate" id="gameDate" required>
+                <p class="input-container">
+                    <label for="gameDate" class="yellow-label">Game Date: </label>
+                    <select name="gameDate" id="gameDate" class="input-field" required>
                         <option value="">Please select a date</option>
                         <option value="2024-05-16">2024-05-16</option>
                         <option value="2024-05-17">2024-05-17</option>
@@ -167,57 +171,67 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </select>
                 </p>
 
-                <p>
-                    <label for="gameJudge">Game Judge: </label>
-                    <input type="text" name="gameJudge" id="gameJudge" placeholder="Game Judge" required>
+                <p class="input-container">
+                    <label for="gameJudge" class="yellow-label">Game Judge: </label>
+                    <input type="text" name="gameJudge" id="gameJudge" placeholder="Game Judge" class="input-field" required>
                 </p>
             </div>
 
             <p>
-            <p>Game Session: </p>
+            <p class="yellow-label">Game Session: </p>
 
             <div class="form-row">
-            <input type="radio" name="gameSession" id="gameSession1" value="1" required>
-            <label for="gameSession1">Session 1</label>
+                <p>
+                    <input type="radio" name="gameSession" id="gameSession1" value="1" class="radio-button" required>
+                    <label for="gameSession1">Session 1</label>
+                </p>
 
-            <input type="radio" name="gameSession" id="gameSession2" value="2">
-            <label for="gameSession2">Session 2</label>
+                <p>
+                    <input type="radio" name="gameSession" id="gameSession2" value="2" class="radio-button">
+                    <label for="gameSession2">Session 2</label>
+                </p>
 
-            <input type="radio" name="gameSession" id="gameSession3" value="3">
-            <label for="gameSession3">Session 3</label>
+                <p>
+                    <input type="radio" name="gameSession" id="gameSession3" value="3" class="radio-button">
+                    <label for="gameSession3">Session 3</label>
+                </p>
 
-            <input type="radio" name="gameSession" id="gameSession4" value="4">
-            <label for="gameSession4">Session 4</label>
+                <p>
+                    <input type="radio" name="gameSession" id="gameSession4" value="4" class="radio-button">
+                    <label for="gameSession4">Session 4</label>
+                </p>
 
-            <input type="radio" name="gameSession" id="gameSession5" value="5">
-            <label for="gameSession5">Session 5</label>
+                <p>
+                    <input type="radio" name="gameSession" id="gameSession5" value="5" class="radio-button">
+                    <label for="gameSession5">Session 5</label>
+                </p>
             </div>
             </p>
 
-            <p>
-                <label for="numberOfPlayers">Number of Players: </label>
-                <input type="number" name="numberOfPlayers" id="numberOfPlayers" step="1" min="1" required>
+            <p class="input-container">
+                <label for="numberOfPlayers" class="yellow-label">Number of Players: </label>
+                <input type="number" name="numberOfPlayers" id="numberOfPlayers" step="1" min="1" class="input-field" required>
             </p>
 
             <h2>Optional Fields</h2>
-            <p>
-                <label for="gameAltTime">Alternate Start Time (optional): </label>
-                <input type="time" name="gameAltTime" id="gameAltTime">
+            <p class="input-container">
+                <label for="gameAltTime" class="yellow-label">Alternate Start Time (optional): </label>
+                <input type="time" name="gameAltTime" id="gameAltTime" class="input-field alt-time-field">
             </p>
 
-            <p>
-                <label for="gameNotes">Games Notes:</label>
-                <textarea name="gameNotes" id="gameNotes" cols="30" rows="10" placeholder="Max 200 characters"></textarea>
+            <p class="textarea-container">
+                <label for="gameNotes" class="yellow-label">Games Notes:</label>
+                <textarea name="gameNotes" id="gameNotes" cols="30" rows="10"  placeholder="Max 200 characters" class="textarea"></textarea>
             </p>
 
-            <p>
-                <label for="gameRules">Games Rules:</label>
-                <textarea name="gameRules" id="gameRules" cols="30" rows="10" placeholder="Max 750 characters"></textarea>
+            <p class="textarea-container">
+                <label for="gameRules" class="yellow-label">Games Rules:</label>
+                <textarea name="gameRules" id="gameRules" cols="30" rows="10" placeholder="Max 750 characters" class="textarea"></textarea>
             </p>
 
             <p class="form-row">
-                <input type="submit" name="submit" id="submit" value="Add Game">
-                <input type="reset" name="reset" id="reset" value="Clear Form">
+                <input type="submit" name="submit" id="submit" value="Add Game" class="button submit-button">
+                <input type="reset" name="reset" id="reset" value="Clear Form" class="clear-button">
             </p>
         </form>
     <?php

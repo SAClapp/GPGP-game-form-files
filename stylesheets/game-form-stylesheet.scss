@@ -17,23 +17,42 @@
         margin: 1em 0;
         font-weight: 400;
     }
+
+    h2 {
+        margin: 1.5em 0 1em 0;
+        font-weight: 400;
+        color: $red;
+    }
+
     p {
         font-size: 1.3em;
         margin: 0.5em 0;
         display: flex;
-        align-items: center;
         width: 100%;
     }
-    input, select {
-        flex: 1;
-        padding: 0.5em;
+
+    input {
         margin: 0.5em;
-        font-size: 0.75em;
-        background-color: $blue-transparant;
-        border: 1px solid $white;
-        color: $white;
-        border-style: none none solid none;
     }
+}
+
+.yellow-label {
+    color: $yellow;
+}
+
+.input-container {
+    align-items: center;
+}
+
+.input-field {
+    flex: 1;
+    padding: 0.5em;
+    margin: 0.5em;
+    font-size: 0.75em;
+    background-color: $blue-transparant;
+    border: 1px solid $white;
+    color: $white;
+    border-style: none none solid none;
 }
 
 .form-row {
@@ -43,6 +62,54 @@
     margin: 1em 0;
 }
 
-.game-input-form input[type="radio"] {
-    margin: 0 0.5em;
+.alt-time-field {
+    background-color: $white-transparant;
+    color: $black;
+    border-radius: 5px;
+}
+
+.textarea-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 1em 0;
+}
+
+.textarea {
+    resize: none;
+    background-color: $blue-transparant;
+    color: $white;
+    padding: 0.5em;
+    font-size: 1em;
+    margin-top: 0.5em;
+    border: 1px solid $white;
+    border-radius: 5px;
+}
+
+.submit-button {
+    border: 1px solid $yellow-transparant;
+    flex: 1;
+    font-size: 1em;
+}
+
+.clear-button {
+    border: 1px solid $red;
+    flex: 1;
+    background-color: $blue-transparant;
+    color: $red;
+    font-size: 1em;
+}
+
+.clear-button:hover {
+    background-color: $red;
+    color: $white;
+    cursor: pointer;
+}
+
+.confirm-message-container {
+    background-color: $blue-transparant;
+    color: $white;
+    margin: 15vw auto;
+    padding: 3vw;
+    width: 50%;
 }
