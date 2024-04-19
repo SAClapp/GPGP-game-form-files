@@ -221,12 +221,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <p class="textarea-container">
                 <label for="gameNotes" class="yellow-label">Games Notes:</label>
-                <textarea name="gameNotes" id="gameNotes" cols="30" rows="10"  placeholder="Max 200 characters" class="textarea"></textarea>
+                <textarea name="gameNotes" id="gameNotes" cols="30" rows="10" maxlength="200"  placeholder="Max 200 characters" class="textarea"></textarea>
             </p>
 
             <p class="textarea-container">
                 <label for="gameRules" class="yellow-label">Games Rules:</label>
-                <textarea name="gameRules" id="gameRules" cols="30" rows="10" placeholder="Max 750 characters" class="textarea"></textarea>
+                <textarea name="gameRules" id="gameRules" cols="30" rows="10" maxlength="750" placeholder="Max 750 characters" class="textarea"></textarea>
             </p>
 
             <p class="form-row">
