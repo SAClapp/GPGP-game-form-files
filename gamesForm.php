@@ -2,7 +2,7 @@
 
 /*
     To Do: 
-    - Should Judge be required when they might need to add information for a lunch/dinner session (2 or 4)?
+    - Should Judge and Number be required when they might need to add information for a lunch/dinner session (2 or 4)?
     - Should we display a confirmation message or redirect to the display page?
     - Ask Jeff if we should try to pull event information from another table on the databse or let them fill out the event name and dates on their own
     - Make a practice events table to pull info from 

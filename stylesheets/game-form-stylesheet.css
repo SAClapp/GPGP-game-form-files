@@ -328,4 +328,43 @@ footer p {
   margin: 15vw auto;
   padding: 3vw;
   width: 50%;
+}
+
+@media only screen and (max-width: 1280px) {
+  .game-input-form {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 1050px) {
+  .game-input-form {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .form-row {
+    flex-wrap: wrap;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .game-input-form {
+    padding: 2em;
+  }
+  .game-input-form h1 {
+    text-align: center;
+  }
+  .game-input-form input {
+    margin: 0.5em 0;
+  }
+  .form-row {
+    flex-direction: column;
+  }
+  .input-container {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .input-field {
+    width: 100%;
+    margin: 0.5em 0;
+  }
 }/*# sourceMappingURL=game-form-stylesheet.css.map */
