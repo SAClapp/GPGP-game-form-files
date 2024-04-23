@@ -107,9 +107,12 @@
 }
 
 .confirm-message-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: $blue-transparant;
     color: $white;
-    margin: 15vw auto;
+    margin: 10vw auto;
     padding: 3vw;
     width: 50%;
 }

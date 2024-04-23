@@ -2,8 +2,6 @@
 
 /*
     To Do: 
-    - Should we display a confirmation message or redirect to the display page?
-        - display form, with link/button to display page
     - Ask Jeff if we should try to pull event information from another table on the databse or let them fill out the event name and dates on their own
         -mock up table to pull from
     - Make a practice events table to pull info from 
@@ -25,6 +23,22 @@
 //     header("Location: loginPage.php");
 // }
 
+// Pull event name from database
+$readyStmt = true;
+
+try {
+    require "dbConnect.php";
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $sql = "SELECT event_name, event_begin_date, event_end_date FROM gpgp_event";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $conn = null;
+} catch (PDOException $e) {
+    $readyStmt = false;
+}
 
 $formSubmitted = false;
 $errorMsg = "";
@@ -102,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body onload="pageLoad()">
-    <nav>
+    <!-- <nav>
         <a href="index.html" class="GPGP-large">GPGP</a>
 
         <div class="menu-links">
@@ -120,29 +134,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <span id="ham-bar-2"></span>
             <span id="ham-bar-3"></span>
         </div>
-    </nav>
+    </nav> -->
 
     <?php
     if ($formSubmitted) {
     ?>
         <div class="confirm-message-container">
-            <h1><?php echo $confirmMsg; ?></h1>
-            <span><?php echo $errorMsg; ?></span>
-
-            <p>Event Name: <?php echo $eventName; ?></p>
-            <p>Game Name: <?php echo $gameName; ?></p>
-            <p>Game Date: <?php echo $gameDate; ?></p>
-            <p>Game Judge: <?php echo $gameJudge; ?></p>
-            <p>Game Session: <?php echo $gameSession; ?></p>
-            <p>Alternate Start Time: <?php echo $gameAltTime; ?></p>
-            <p>Number of Players: <?php echo $numberOfPlayers; ?></p>
-            <p>Game Notes: <?php echo $gameNotes; ?></p>
-            <p>Game Rules: <?php echo $gameRules; ?></p>
+            <a href="gpgp-event-info.html" class="button">View Event Page</a>
         </div>
     <?php
-    } else {
+    }
     ?>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" class="game-input-form">
+
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post" class="game-input-form">
             <h1>Game Information</h1>
 
             <h2>Required Fields</h2>
@@ -151,7 +155,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     Temporarily a text field, will be a dropdown populated with the event names from the event table
                 -->
                 <label for="eventName" class="yellow-label">Event Name: </label>
-                <input type="text" name="eventName" id="eventName" placeholder="Event Name" class="input-field" required>
+                <select name="eventName" id="eventName" class="input-field" required>
+                    <option value="">Please select an event</option>
+                    <?php 
+                        if ($readyStmt == false) {
+                            echo "<option value=''>No Events Found</option>";
+                        } else {
+                            while ($row = $stmt->fetch()) {
+                                echo "<option value='" . $row['event_name'] . "'>" . $row['event_name'] . "</option>";
+                            }
+                        }
+
+                    ?>
+                </select>
             </p>
 
             <p class="input-container">
@@ -163,11 +179,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label for="gameDate" class="yellow-label">Game Date: </label>
                 <select name="gameDate" id="gameDate" class="input-field" required>
                     <option value="">Please select a date</option>
-                    <option value="2024-05-16">2024-05-16</option>
-                    <option value="2024-05-17">2024-05-17</option>
-                    <option value="2024-05-18">2024-05-18</option>
-                    <option value="2024-05-19">2024-05-19</option>
-                    <!-- populate with the event dates from event on the event table -->
+                    <?php 
+                        if ($readyStmt == false) {
+                            echo "<option value=''>No Dates Found</option>";
+                        } else {
+
+                            while ($row = $stmt->fetch()) {
+                                echo "<option value='" . $row['event_name'] . "'>" . $row['event_name'] . "</option>";
+                            }
+                        }
+
+                    ?>
                 </select>
             </p>
 
@@ -235,9 +257,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="reset" name="reset" id="reset" value="Clear Form" class="clear-button">
             </p>
         </form>
-    <?php
-    }
-    ?>
 
     <footer>
         <ul>

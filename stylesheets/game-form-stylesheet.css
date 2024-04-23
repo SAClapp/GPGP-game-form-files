@@ -323,9 +323,12 @@ footer p {
 }
 
 .confirm-message-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: rgba(29, 33, 59, 0.8745098039);
   color: #efece7;
-  margin: 15vw auto;
+  margin: 10vw auto;
   padding: 3vw;
   width: 50%;
 }
