@@ -186,30 +186,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </p>
 
             <p>
-            <p class="yellow-label">Game Session: </p>
+            <p class="yellow-label session-title">Game Session: </p>
 
             <div class="form-row">
-                <p>
+                <p class="session-option">
                     <input type="radio" name="gameSession" id="gameSession1" value="1" class="radio-button" required>
                     <label for="gameSession1">9:00 AM - 1:00 PM</label>
                 </p>
 
-                <p>
+                <p class="session-option">
                     <input type="radio" name="gameSession" id="gameSession2" value="2" class="radio-button">
                     <label for="gameSession2">Lunch</label>
                 </p>
 
-                <p>
+                <p class="session-option">
                     <input type="radio" name="gameSession" id="gameSession3" value="3" class="radio-button">
                     <label for="gameSession3">2:00 PM - 6:00 PM</label>
                 </p>
 
-                <p>
+                <p class="session-option">
                     <input type="radio" name="gameSession" id="gameSession4" value="4" class="radio-button">
                     <label for="gameSession4">Dinner</label>
                 </p>
 
-                <p>
+                <p class="session-option">
                     <input type="radio" name="gameSession" id="gameSession5" value="5" class="radio-button">
                     <label for="gameSession5">7:00 PM - </label>
                 </p>
@@ -217,8 +217,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </p>
 
             <h2>Optional Fields</h2>
-            <div class="form-row">
-                <p class="input-container">
+            <p class="input-container">
                     <label for="gameJudge" class="yellow-label">Game Judge: </label>
                     <input type="text" name="gameJudge" id="gameJudge" placeholder="Game Judge" class="input-field">
                 </p>
@@ -227,7 +226,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <label for="numberOfPlayers" class="yellow-label">Number of Players: </label>
                     <input type="number" name="numberOfPlayers" id="numberOfPlayers" step="1" min="1" class="input-field">
                 </p>
-            </div>
 
             <p class="input-container">
                 <label for="gameAltTime" class="yellow-label">Alternate Start Time (optional): </label>

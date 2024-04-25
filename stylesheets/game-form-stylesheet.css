@@ -226,7 +226,7 @@ footer p {
   align-items: center;
   justify-content: center;
   margin-top: 5vw;
-  padding: 3vw;
+  padding: 5vw;
   background-color: rgba(29, 33, 59, 0.8745098039);
   width: 50%;
   color: #efece7;
@@ -244,9 +244,7 @@ footer p {
 }
 .game-input-form p {
   font-size: 1.3em;
-  margin: 0.5em 0;
   display: flex;
-  width: 100%;
 }
 .game-input-form input {
   margin: 0.5em;
@@ -258,6 +256,8 @@ footer p {
 
 .input-container {
   align-items: center;
+  width: 100%;
+  margin: 0.5em 0;
 }
 
 .input-field {
@@ -273,9 +273,18 @@ footer p {
 
 .form-row {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
   margin: 1em 0;
+}
+
+.session-title {
+  align-self: flex-start;
+  margin: 1em 0 0.5em 0;
+}
+
+.session-option {
+  margin: 0.5em 1em;
 }
 
 .alt-time-field {
@@ -369,5 +378,8 @@ footer p {
   .input-field {
     width: 100%;
     margin: 0.5em 0;
+  }
+  .session-option input {
+    margin: 0 1em;
   }
 }/*# sourceMappingURL=game-form-stylesheet.css.map */
