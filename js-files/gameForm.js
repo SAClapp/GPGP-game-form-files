@@ -1,5 +1,4 @@
 window.addEventListener('load', function() {
-    console.log('page loaded');
 
     const eventNameEl = document.querySelector('#eventName');
 
@@ -18,6 +17,13 @@ window.addEventListener('load', function() {
                 findDateOptions(selectedOption);
             }
         } 
+    });
+
+    const confirmClearButton = document.querySelector('.confirm-message-container .form-row button');
+
+    confirmClearButton.addEventListener('click', function() {
+        const confirmMessage = document.querySelector('.confirm-message-container');
+        confirmMessage.style.display = 'none';
     });
 });
 
