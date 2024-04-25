@@ -42,7 +42,6 @@ try {
 
 // Form submission
 $formSubmitted = false;
-$errorMsg = "";
 $confirmMsg = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -94,7 +93,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //     $conn = null;
     //     $confirmMsg = "Game added successfully";
     // } catch (PDOException $e) {
-    //     $errorMsg = "Please review the form and try again";
     //     $confirmMsg = "Opps, something went wrong";
     // }
 }
@@ -118,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
 <!-- <body onload="pageLoad()"> -->
-    <!-- <nav>
+    <nav>
         <a href="index.html" class="GPGP-large">GPGP</a>
 
         <div class="menu-links">
@@ -136,13 +134,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <span id="ham-bar-2"></span>
             <span id="ham-bar-3"></span>
         </div>
-    </nav> -->
+    </nav>
 
     <?php
     if ($formSubmitted) {
     ?>
         <div class="confirm-message-container">
-            <a href="gpgp-event-info.html" class="button">View Event Page</a>
+            <h2 class="confirm-message">Event Added Successfully!</h2>
+            
+            <div class="form-row">
+            <a href="gpgp-event-info.html" class="button close-button">View Event Page</a>
+            <button class="clear-button close-button">Close Confirmation</button>
+            </div>
         </div>
     <?php
     }

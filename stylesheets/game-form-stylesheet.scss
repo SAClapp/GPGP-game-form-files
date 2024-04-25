@@ -117,13 +117,26 @@
 
 .confirm-message-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: $blue-transparant;
     color: $white;
-    margin: 10vw auto;
+    margin: 10vw auto 0 auto;
     padding: 3vw;
-    width: 50%;
+    width: fit-content;
+}
+
+.confirm-message {
+    font-weight: 400;
+    margin: 1em 5em;
+}
+
+.close-button {
+    font-size: 1.3em;
+    padding: 0.5em 2em;
+    margin-left: 0.5em;
+    text-align: center;
 }
 
 @media only screen and (max-width: 1280px) {
@@ -173,5 +186,20 @@
 
     .session-option input {
         margin: 0 1em;
+    }
+
+    .confirm-message-container {
+        padding: 2em;
+        width: 90%;
+        margin-top: 5em;
+    }
+
+    .confirm-message {
+        margin: 1em 0;
+    }
+
+    .close-button {
+        margin-left: 0;
+        margin-top: 1em;
     }
 }
