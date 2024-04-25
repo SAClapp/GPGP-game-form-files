@@ -23,14 +23,14 @@
 //     header("Location: loginPage.php");
 // }
 
-// Pull event name from database
+// Pull event names from database
 $readyStmt = true;
 
 try {
     require "dbConnect.php";
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = "SELECT event_name, event_begin_date, event_end_date FROM gpgp_event";
+    $sql = "SELECT event_id, event_name FROM gpgp_event";
 
     $stmt = $conn->prepare($sql);
     $stmt->execute();
@@ -40,6 +40,7 @@ try {
     $readyStmt = false;
 }
 
+// Form submission
 $formSubmitted = false;
 $errorMsg = "";
 $confirmMsg = "";
@@ -112,10 +113,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="icon" type="image/x-icon" href="images/GPGP_Logo_Transparent_white.png">
     <link rel="stylesheet" href="stylesheets/game-form-stylesheet.css">
     <link rel="stylesheet" href="https://use.typekit.net/lqa6jva.css">
-    <script src="js-files/main.js"></script>
+    <!-- <script src="js-files/main.js"></script> -->
+    <script src="js-files/gameForm.js"></script>
 </head>
-
-<body onload="pageLoad()">
+<body>
+<!-- <body onload="pageLoad()"> -->
     <!-- <nav>
         <a href="index.html" class="GPGP-large">GPGP</a>
 
@@ -151,9 +153,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <h2>Required Fields</h2>
             <p class="input-container">
-                <!-- 
-                    Temporarily a text field, will be a dropdown populated with the event names from the event table
-                -->
                 <label for="eventName" class="yellow-label">Event Name: </label>
                 <select name="eventName" id="eventName" class="input-field" required>
                     <option value="">Please select an event</option>
@@ -162,10 +161,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             echo "<option value=''>No Events Found</option>";
                         } else {
                             while ($row = $stmt->fetch()) {
-                                echo "<option value='" . $row['event_name'] . "'>" . $row['event_name'] . "</option>";
+                                echo "<option value='" . $row['event_name'] . "' id='gameID-" . $row['event_id'] . "'>" . $row['event_name'] . "</option>";
                             }
                         }
-
                     ?>
                 </select>
             </p>
@@ -178,17 +176,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <p class="input-container">
                 <label for="gameDate" class="yellow-label">Game Date: </label>
                 <select name="gameDate" id="gameDate" class="input-field" required>
-                    <option value="">Please select a date</option>
+                    <option value="">Please select an event</option>
                     <?php 
                         if ($readyStmt == false) {
                             echo "<option value=''>No Dates Found</option>";
-                        } else {
-
-                            while ($row = $stmt->fetch()) {
-                                echo "<option value='" . $row['event_name'] . "'>" . $row['event_name'] . "</option>";
-                            }
                         }
-
                     ?>
                 </select>
             </p>
