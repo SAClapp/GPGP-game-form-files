@@ -7,11 +7,16 @@ window.addEventListener('load', function() {
         const selectedOption = findSelectedOption();
         const dateFirstOption = document.querySelector('#gameDate > option').innerHTML;
 
-        if (dateFirstOption == 'Please select a date') {
+        if (dateFirstOption == 'Please select a date' && selectedOption != '') {
             deleteGameDates();
             findDateOptions(selectedOption);
         } else {
-            findDateOptions(selectedOption);
+            if (selectedOption == '') {
+                deleteGameDates();
+                dateFirstOption.innerHTML = 'Please select an event';
+            } else {
+                findDateOptions(selectedOption);
+            }
         } 
     });
 });
@@ -23,8 +28,11 @@ function findSelectedOption() {
 
     for (x=0; x < selectOptions.length; x++) {
         if (selectOptions[x].selected) {
-            selectedOption = selectOptions[x].attributes.id.value;
-            break;
+            if (selectOptions[x].value == '') {
+                selectedOption = selectOptions[x].value;
+            } else {
+                selectedOption = selectOptions[x].attributes.id.value;
+            }
         }
     }
 
